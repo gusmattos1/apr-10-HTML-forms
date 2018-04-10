@@ -1,0 +1,13 @@
+
+<p class="total_contacts">There are <strong><%=@contacts.size%></strong> contacts</p>
+
+  <% @contacts.each do |contact| %>
+    <div class="contacts">
+      <h2><%= contact.first_name %> <%= contact.last_name %>
+      <% if contact.email != ""%>
+          (<%= contact.email %>)</h2>
+      <%end%> <br>
+
+      <a href="#">Edit</a> <span>|</span> <a href="#">Delete</a> <span>|</span> <a href="/contacts/<%=contact.id%>">Contac page</a>
+      </div>
+  <% end %>
