@@ -3,13 +3,17 @@
 <form action='/contacts/<%= @contact.id %>' method='post'>
   <input type='hidden' name='_method' value='put'>
 
+  <label for="first_name">First name: </label>
   <input type='text' name='first_name' value='<%= @contact.first_name %>'>
-
+  <br>
+  <label for="last_name">Last name: </label>
   <input type='text' name='last_name' value='<%= @contact.last_name %>'>
-
+  <br>
+  <label for="email">Email: </label>
   <input type='text' name='email' value='<%= @contact.email %>'>
-
+  <br>
+    <label for="note">Note: </label>
   <input type='text' name='note' value='<%= @contact.note %>'>
-  
+
   <input type='submit' value='Edit Contact'>
 </form>

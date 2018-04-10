@@ -7,3 +7,9 @@
 <p> <%=@contact.note%> </p>
 
 <p> ID: <%=@contact.id%> </p>
+
+
+<form action='/contacts/<%= @contact.id %>' method='post'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Delete Contact'>
+</form>
