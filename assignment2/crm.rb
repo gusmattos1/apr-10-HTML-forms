@@ -17,6 +17,10 @@ get '/contacts' do
   erb :contacts
 end
 
+get '/contacts/new' do
+  @title = 'New contact'
+  erb :new
+end
 get '/contacts/:id' do
   @contact = Contact.find_by({id: params[:id].to_i})
   if @contact
@@ -26,9 +30,7 @@ get '/contacts/:id' do
   end
 end
 
-get '/new' do
-  erb :new
-end
+
 
 get '/about' do
   @title = 'about'
