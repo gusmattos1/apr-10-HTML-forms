@@ -51,6 +51,16 @@ header a {
   font-size: 15px;
 }
 
+.add_contact {
+  padding: 5px;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: aqua;
+  margin: 5px;
+  position: relative;
+  top: 10px;
+}
+
 main {}
 
 footer {

@@ -46,6 +46,17 @@ post '/contacts' do
       redirect to '/contacts'
 end
 
+post '/contacts/search' do
+@contacts = []
+  Contact.all.each do |contact|
+    if contact.inspect.include?(params[:search])
+      @contacts.push contact
+    end
+  end
+
+  erb :contacts
+
+end
 get '/contacts/:id/edit' do
   @contact = Contact.find_by(id: params[:id].to_i)
     if @contact
@@ -72,6 +83,7 @@ put '/contacts/:id' do
 end
 
 delete '/contacts/:id' do
+
   @contact = Contact.find(params[:id])
   if @contact
      @contact.delete
@@ -80,6 +92,8 @@ delete '/contacts/:id' do
     raise Sinatra::NotFound
   end
 end
+
+
 
 after do
   ActiveRecord::Base.connection.close
