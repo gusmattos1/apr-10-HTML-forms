@@ -9,7 +9,12 @@
   <input type='submit' value='Search'>
 </form>
 
+<% if @contacts.empty? %>
 
+<div class="contacts">
+  <h2>Sorry, contact not found</h2>
+
+<% else %>
 
   <% @contacts.each do |contact| %>
     <div class="contacts">
@@ -22,3 +27,4 @@
       <a href="/contacts/<%=contact.id%>">Contac page</a>
       </div>
   <% end %>
+<% end %>

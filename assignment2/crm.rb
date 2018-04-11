@@ -47,16 +47,17 @@ post '/contacts' do
 end
 
 post '/contacts/search' do
-@contacts = []
+  @title = 'Contacts'
+  @contacts = []
   Contact.all.each do |contact|
-    if contact.inspect.include?(params[:search])
+    if contact.inspect.downcase.include?(params[:search].downcase)
       @contacts.push contact
     end
   end
-
   erb :contacts
 
 end
+
 get '/contacts/:id/edit' do
   @contact = Contact.find_by(id: params[:id].to_i)
     if @contact
